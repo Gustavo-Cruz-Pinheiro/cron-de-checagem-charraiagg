@@ -3,7 +3,7 @@ import { get } from 'https';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const url = 'https://sua-api-render.com/endpoint'; // Substitua pelo URL da sua API
+const url = 'https://charraiagg-back-end.onrender.com/health'; // Substitua pelo URL da sua API
 
 app.get('/', (req, res) => {
   get(url, (apiRes) => {
