@@ -1,23 +1,23 @@
-// import cron from 'node-cron';
-// import axios from 'axios';
+const express = require('express');
+const https = require('https');
 
-// cron.schedule('*/4 * * * *', async () => {
-//   try {
-//     await axios.get('https://charraiagg-back-end.onrender.com/health');
-//     console.log('Keep-alive request successful');
-//   } catch (error) {
-//     console.error('Error keeping API alive:', error);
-//   }
-// });
+const app = express();
+const port = process.env.PORT || 3000;
+const url = 'https://sua-api-render.com/endpoint'; // Substitua pelo URL da sua API
 
-import { get } from 'https';
-
-const url = 'https://charraiagg-back-end.onrender.com/health'; // Substitua pelo URL da sua API
-
-setInterval(() => {
-  get(url, (res) => {
-    console.log(`Status Code: ${res.statusCode}`);
+app.get('/', (req, res) => {
+  https.get(url, (apiRes) => {
+    res.send(`Pinged your API: Status Code: ${apiRes.statusCode}`);
   }).on('error', (e) => {
-    console.error(`Erro: ${e.message}`);
+    res.send(`Erro ao pingar a API: ${e.message}`);
   });
-}, 300000); // 300000ms = 5 minutos
+});
+
+app.listen(port, () => {
+  console.log(`Servidor de ping rodando na porta ${port}`);
+  setInterval(() => {
+    https.get(url);
+  }, 300000); // 300000ms = 5 minutos
+});
+
+module.exports = app;
