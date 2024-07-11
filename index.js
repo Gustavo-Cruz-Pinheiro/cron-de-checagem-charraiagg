@@ -1,12 +1,12 @@
-const express = require('express');
-const https = require('https');
+import express from 'express';
+import { get } from 'https';
 
 const app = express();
 const port = process.env.PORT || 3000;
 const url = 'https://sua-api-render.com/endpoint'; // Substitua pelo URL da sua API
 
 app.get('/', (req, res) => {
-  https.get(url, (apiRes) => {
+  get(url, (apiRes) => {
     res.send(`Pinged your API: Status Code: ${apiRes.statusCode}`);
   }).on('error', (e) => {
     res.send(`Erro ao pingar a API: ${e.message}`);
@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor de ping rodando na porta ${port}`);
   setInterval(() => {
-    https.get(url);
+    get(url);
   }, 300000); // 300000ms = 5 minutos
 });
 
-module.exports = app;
+export default app;
