@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Cron de checagem da minha api do meu charraia",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Gustavo Cruz Pinheiro",
   "license": "MIT",
