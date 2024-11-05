@@ -1,8 +1,8 @@
-# Cron de Checagem CharraiaGG
+# Cron de Checagem Charraia GG
 
 ![Status](http://img.shields.io/static/v1?label=Status&message=Finalizado&color=GREEN&style=for-the-badge)
 
-Projeto feito com o objetivo de fazer solicitações ao Back-End do projeto CharraiaGG para o mesmo não ser desativado pelo serviço de hospedagem.
+Projeto feito com o objetivo de fazer solicitações ao Back-end do projeto CharraiaGG para o mesmo não ser desativado pelo serviço de hospedagem.
 
 ## Autor
 
